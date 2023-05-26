@@ -10,21 +10,17 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": [
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@xui-next/api-interfaces": [
-        "libs/api-interfaces/src/index.ts"
+      "@xui-next/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@xui-next/hmcts-ui-common": ["libs/hmcts-ui-common/src/index.ts"],
+      "@xui-next/shared-data-access-user": [
+        "libs/shared-data-access-user/src/index.ts"
       ]
     }
   },
-  "exclude": [
-    "node_modules",
-    "tmp"
-  ]
+  "exclude": ["node_modules", "tmp"]
 }
