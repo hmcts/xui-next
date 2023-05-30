@@ -1,13 +1,40 @@
-
 import { Route } from '@angular/router';
+import {loadRemoteModule} from "@nx/angular/mf";
+import {authGuard} from "@xui-next/shared-data-access-user";
+
+
 
 export const appRoutes: Route[] = [
   {
+    path: 'login',
+    loadChildren: () =>
+        loadRemoteModule('idam','./Module').then(
+            (m) => m.RemoteEntryModule),
+  },
+  {
+    path: 'manage-organisations',
+    canActivate:[authGuard],
+    loadChildren: () =>
+      loadRemoteModule('manage-organisations','./Module').then((m) => m.RemoteEntryModule),
+  },
+  {
+    path: 'manage-cases',
+    canActivate:[authGuard],
+    loadChildren: () =>
+      loadRemoteModule('manage-cases','./Module').then((m) => m.RemoteEntryModule),
+  },
+  {
+    path: 'show-cases',
+    canActivate:[authGuard],
+    loadChildren: () =>
+      loadRemoteModule('show-cases','./Module').then((m) => m.RemoteEntryModule),
+  },
+  {
     path: 'idam',
-    loadChildren: () => import('idam/Module').then((m) => m.RemoteEntryModule),
+    loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: '',
-    loadChildren: () => import('idam/Module').then((m) => m.RemoteEntryModule),
+    loadChildren: () => loadRemoteModule('manage-cases','./Module').then((m) => m.RemoteEntryModule),
   },
 ];

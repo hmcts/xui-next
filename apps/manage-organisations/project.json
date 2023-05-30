@@ -1,0 +1,122 @@
+{
+  "name": "manage-organisations",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "xui-next",
+  "sourceRoot": "apps/manage-organisations/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:webpack-browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/manage-organisations",
+        "index": "apps/manage-organisations/src/index.html",
+        "main": "apps/manage-organisations/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/manage-organisations/tsconfig.app.json",
+        "assets": [
+          "apps/manage-organisations/src/favicon.ico",
+          "apps/manage-organisations/src/assets"
+        ],
+        "styles": ["apps/manage-organisations/src/styles.scss"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/manage-organisations/webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all",
+          "customWebpackConfig": {
+            "path": "apps/manage-organisations/webpack.prod.config.js"
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/angular:webpack-dev-server",
+      "options": {
+        "port": 4204,
+        "publicHost": "http://localhost:4204"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "manage-organisations:build:production"
+        },
+        "development": {
+          "browserTarget": "manage-organisations:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "manage-organisations:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "apps/manage-organisations/**/*.ts",
+          "apps/manage-organisations/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/manage-organisations/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "manage-organisations:build",
+        "port": 4204,
+        "watch": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "manage-organisations:build:development"
+        },
+        "production": {
+          "buildTarget": "manage-organisations:build:production"
+        }
+      }
+    }
+  }
+}

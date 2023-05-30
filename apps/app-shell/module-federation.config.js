@@ -1,4 +1,4 @@
 module.exports = {
   name: 'app-shell',
-  remotes: ['idam'],
+  remotes: [], // remotes are blank here since it will be populated at Runtime
 };
