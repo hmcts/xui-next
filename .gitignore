@@ -1,3 +1,6 @@
+# For a MAC ignore all DS_Store directories
+**/.DS_Store
+
 
 # Logs
 logs
