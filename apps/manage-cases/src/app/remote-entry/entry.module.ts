@@ -7,8 +7,7 @@ import { NxWelcomeComponent } from './nx-welcome.component';
 import { remoteRoutes } from './entry.routes';
 
 @NgModule({
-  declarations: [RemoteEntryComponent, NxWelcomeComponent],
-  imports: [CommonModule, RouterModule.forChild(remoteRoutes)],
-  providers: [],
+    imports: [CommonModule, RouterModule.forChild(remoteRoutes), RemoteEntryComponent, NxWelcomeComponent],
+    providers: [],
 })
 export class RemoteEntryModule {}

@@ -9,8 +9,7 @@ import {IdamContainerComponent} from "./idam-container/idam-container.component"
 
 
 @NgModule({
-  declarations: [RemoteEntryComponent,IdamContainerComponent],
-  imports: [CommonModule, FormsModule, RouterModule.forChild(remoteRoutes)],
-  providers: [],
+    imports: [CommonModule, FormsModule, RouterModule.forChild(remoteRoutes), RemoteEntryComponent, IdamContainerComponent],
+    providers: [],
 })
 export class RemoteEntryModule {}

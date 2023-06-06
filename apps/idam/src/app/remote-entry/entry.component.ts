@@ -7,10 +7,12 @@
 // export class RemoteEntryComponent {}
 import { Component } from '@angular/core';
 import {UserService} from "@xui-next/shared-data-access-user";
+import { NgIf, AsyncPipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'xui-next-idam',
-  template: `
+    selector: 'xui-next-idam',
+    template: `
     <div class="login-app">
       <form class="login-form" (ngSubmit)="login()">
         <label>
@@ -26,8 +28,8 @@ import {UserService} from "@xui-next/shared-data-access-user";
       <div *ngIf="isLoggedIn$ | async">User is logged in!</div>
     </div>
   `,
-  styles: [
-    `
+    styles: [
+        `
       .login-app {
         width: 30vw;
         border: 2px dashed black;
@@ -45,7 +47,13 @@ import {UserService} from "@xui-next/shared-data-access-user";
         display: block;
       }
     `,
-  ],
+    ],
+    standalone: true,
+    imports: [
+        FormsModule,
+        NgIf,
+        AsyncPipe,
+    ],
 })
 export class RemoteEntryComponent {
   username = '';
