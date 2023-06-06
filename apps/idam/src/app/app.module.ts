@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
+import {StoreModule} from "@ngrx/store";
+import {userFeature} from "@xui-next/shared-data-access-user";
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { AppComponent } from './app.component';
         },
       ],
       { initialNavigation: 'enabledBlocking' }
-    )
+    ),
+      StoreModule.forFeature(userFeature)
   ],
   providers: [],
   bootstrap: [AppComponent],
