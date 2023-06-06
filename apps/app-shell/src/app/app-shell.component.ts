@@ -1,14 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import { Router, RouterOutlet } from "@angular/router";
 
 import {distinctUntilChanged} from "rxjs";
 
 import {UserService} from "@xui-next/shared-data-access-user";
 
 @Component({
-  selector: 'xui-next-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app-shell.component.scss'],
+    selector: 'xui-next-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app-shell.component.scss'],
+    standalone: true,
+    imports: [RouterOutlet],
 })
 export class AppShellComponent implements OnInit {
   title = 'app-shell';
