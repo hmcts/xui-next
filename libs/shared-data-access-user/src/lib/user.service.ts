@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import {StoreFeature} from "@ngrx/store/src/models";
+
 import {Store} from "@ngrx/store";
 import {UserActions} from "./store/user.actions";
-import {selectUserLoggedIn} from "./store/user.selectors";
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private store:Store) {
+    this.store.dispatch(UserActions.loadUsers())
   }
   get isUserLoggedIn(): BehaviorSubject<boolean> {
     return this._isUserLoggedIn;
