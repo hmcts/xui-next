@@ -3,19 +3,21 @@ import { BehaviorSubject } from 'rxjs';
 
 import {Store} from "@ngrx/store";
 import {UserActions} from "./store/user.actions";
+import {selectUserLoggedIn} from "./store/user.selectors";
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
   constructor(private store:Store) {
+    console.log('User Service init')
     this.store.dispatch(UserActions.loadUsers())
   }
   get isUserLoggedIn(): BehaviorSubject<boolean> {
     return this._isUserLoggedIn;
   }
   private _isUserLoggedIn = new BehaviorSubject(false);
-  //isUserLoggedIn$ = this.store.select(selectUserLoggedIn);
-  isUserLoggedIn$ = this._isUserLoggedIn.asObservable();
+  isUserLoggedIn$ = this.store.select(selectUserLoggedIn)
+  //isUserLoggedIn$ = this._isUserLoggedIn.asObservable();
   checkCredentials(username: string, password: string) {
     if (username === 'demo' && password === 'demo') {
       this._isUserLoggedIn.next(true);
