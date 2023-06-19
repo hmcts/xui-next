@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {StoreModule} from "@ngrx/store";
 import {userFeature} from "@xui-next/shared-data-access-user";
+import {HttpClient} from "@angular/common/http";
 
 
 @NgModule({
@@ -24,7 +25,7 @@ import {userFeature} from "@xui-next/shared-data-access-user";
     ),
       StoreModule.forFeature(userFeature)
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

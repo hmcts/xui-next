@@ -63,7 +63,8 @@
       },
       "configurations": {
         "production": {
-          "browserTarget": "app-shell:build:production"
+          "browserTarget": "app-shell:build:production",
+          "proxyConfig": "apps/app-shell/proxy.conf.json"
         },
         "development": {
           "browserTarget": "app-shell:build:development"

@@ -10,9 +10,11 @@ import { appRoutes } from './app/app.routes';
 import { withEnabledBlockingInitialNavigation, provideRouter } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import {userFeature, UserService} from "@xui-next/shared-data-access-user";
+import {HttpClient, provideHttpClient} from "@angular/common/http";
 
 bootstrapApplication(AppShellComponent, {
     providers: [
+        provideHttpClient(),
         UserService,
         // importProvidersFrom(BrowserModule, StoreModule.forRoot({}, {
         //     metaReducers: [],

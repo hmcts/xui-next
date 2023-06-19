@@ -1,0 +1,36 @@
+# curl http://localhost:3000/api/auth/profile -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NjkwNjg1NiwiZXhwIjoxNjg2OTA2OTE2fQ.BMem8SamKWu5A21mW0Cm3CT16dgLC6VruCDq0z9YYHE"
+GET http://localhost:3000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NjkwNjg1NiwiZXhwIjoxNjg2OTA2OTE2fQ.BMem8SamKWu5A21mW0Cm3CT16dgLC6VruCDq0z9YYHE
+
+###
+
+GET  http://localhost:3000/api
+
+Accept: application/json
+
+###
+
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-type: application/json
+
+{"username": "Demo", "password": "incorrect Password"}
+
+### Authorization by token, part 1. Retrieve and save token.
+POST http://localhost:3000/api/auth/login
+Content-type: application/json
+
+{"username": "Demo", "password": "demo"}
+
+> {% client.global.set("access_token", response.body.json.access_token); %}
+
+### Authorization by token, part 2. Use token to authorize.
+## curl http://localhost:3000/api/auth/profile -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NjkwNjg1NiwiZXhwIjoxNjg2OTA2OTE2fQ.BMem8SamKWu5A21mW0Cm3CT16dgLC6VruCDq0z9YYHE"
+GET http://localhost:3000/api/auth/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NzE1NTc3NiwiZXhwIjoxNjg3MTU1ODM2fQ.BX-qnRvaeyUuGzbGChYmSIusgjJp-xqP-b9LPBloUz8
+###
+
+# FOr some reson this does not work as expected the above works when pasted manually
+GET  http://localhost:3000/api/auth/profile
+Authorization: {{access_token}}

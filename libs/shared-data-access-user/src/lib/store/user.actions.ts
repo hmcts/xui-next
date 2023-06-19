@@ -3,8 +3,9 @@ import { createActionGroup, emptyProps, props } from '@ngrx/store';
 export const UserActions = createActionGroup({
   source: 'User',
   events: {
-    'Load Users': emptyProps(),
-    'Load Users Success': props<{ data: unknown }>(),
-    'Load Users Failure': props<{ error: unknown }>(),
+    'Load User': emptyProps(),
+    'Load User Credentials': props<{userName:string,password:string}>,
+    'Load User Success': props<{ data: unknown }>(),
+    'Load User Failure': props<{ error: unknown }>(),
   }
 });

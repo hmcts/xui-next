@@ -13,9 +13,9 @@ loggedIn: false
 
 export const reducer = createReducer(
   initialState,
-  on(UserActions.loadUsers, state => state),
-  on(UserActions.loadUsersSuccess, (state) => ({...state, loggedIn: true})),
-  on(UserActions.loadUsersFailure, (state) => ({...state, loggedIn: false})),
+  on(UserActions.loadUser, state => state),
+  on(UserActions.loadUserSuccess, (state) => ({...state, loggedIn: true})),
+  on(UserActions.loadUserFailure, (state) => ({...state, loggedIn: false})),
 );
 
 export const userFeature = createFeature({

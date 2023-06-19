@@ -11,12 +11,12 @@ export class UserEffects {
   loadUsers$ = createEffect(() => {
     return this.actions$.pipe(
 
-      ofType(UserActions.loadUsers),
+      ofType(UserActions.loadUser),
       concatMap(() =>
         /** An EMPTY observable only emits completion. Replace with your own observable API request */
         EMPTY.pipe(
-          map(data => UserActions.loadUsersSuccess({ data })),
-          catchError(error => of(UserActions.loadUsersFailure({ error }))))
+          map(data => UserActions.loadUserSuccess({ data })),
+          catchError(error => of(UserActions.loadUserFailure({ error }))))
       )
     );
   });
