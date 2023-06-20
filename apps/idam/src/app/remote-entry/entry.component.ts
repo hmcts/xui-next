@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
         <button type="submit">Login</button>
       </form>
       <div *ngIf="isLoggedIn$ | async">User is logged in!</div>
+        <div>User Status </div>
     </div>
   `,
     styles: [
@@ -55,7 +56,7 @@ import { FormsModule } from '@angular/forms';
         AsyncPipe,
     ],
 })
-export class RemoteEntryComponent {
+export class LoginEntryComponent {
   username = '';
   password = '';
   isLoggedIn$ = this.userService.isUserLoggedIn$;

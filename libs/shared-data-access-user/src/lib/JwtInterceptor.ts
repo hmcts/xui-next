@@ -10,14 +10,16 @@ import {UserService} from "./user.service";
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
     constructor(private userService: UserService) { }
-
+    private isLoggedIn = false
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add auth header with jwt if account is logged in and request is to the api url
 
-        const isLoggedIn = this.userService.isUserLoggedIn.value;
+      this.userService.isUserLoggedIn$.subscribe( (data) => {
+          this.isLoggedIn = data
+      });
         const isApiUrl = true;
         //const isApiUrl = request.url.startsWith(environment.apiUrl);
-        if (isLoggedIn && isApiUrl) {
+        if (this.isLoggedIn && isApiUrl) {
             request = request.clone({
                 setHeaders: { Authorization: `Bearer ${this.userService?.getToken()}` }
             });

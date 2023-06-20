@@ -30,11 +30,15 @@ export const appRoutes: Route[] = [
       loadRemoteModule('show-cases','./Module').then((m) => m.RemoteEntryModule),
   },
   {
+    path: 'notAuthorised',
+    loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.RemoteEntryModule),
+  },
+  {
     path: 'idam',
     loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: '',
-    loadChildren: () => loadRemoteModule('manage-cases','./Module').then((m) => m.RemoteEntryModule),
+    loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.RemoteEntryModule),
   },
 ];

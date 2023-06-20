@@ -1,6 +1,8 @@
 import { Route } from '@angular/router';
-import { RemoteEntryComponent } from './entry.component';
+import {LoginEntryComponent} from './entry.component';
+import {NotAuthorisedComponent} from "../notAuthorised/not-authorised.component";
 
 export const remoteRoutes: Route[] = [
-  { path: '', component: RemoteEntryComponent },
+  { path: 'notAuthorised', component: NotAuthorisedComponent },
+  { path: '', component: LoginEntryComponent }
 ];

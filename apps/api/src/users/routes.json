@@ -1,0 +1,9 @@
+  {
+  "authentication": {
+  "path": "authentication",
+  "remoteEntry": "http://localhost:5001/remoteEntry.js",
+  "remoteName": "coreAuthentication",
+  "exposedModule": "./LoginModule",
+  "exposedModuleName": "LoginModule"
+  }
+  }

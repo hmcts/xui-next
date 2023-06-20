@@ -16,6 +16,8 @@ export class AuthService {
         }
         const payload = { sub: user.userId, username: user.username };
         return {
+            defaultRoute: user.defaultRoute,
+            permittedRoutes: JSON.stringify(user.routes),
             access_token: await this.jwtService.signAsync(payload),
         };
     }
