@@ -9,10 +9,12 @@ import { Component } from '@angular/core';
 import {UserService} from "@xui-next/shared-data-access-user";
 import { NgIf, AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import {CommonFooterComponent, CommonHeaderComponent} from "@ui-hmcts-common";
 
 @Component({
     selector: 'xui-next-idam',
     template: `
+        <xui-next-common-header></xui-next-common-header>
     <div class="login-app">
       <form class="login-form" (ngSubmit)="login()">
         <label>
@@ -28,6 +30,7 @@ import { FormsModule } from '@angular/forms';
       <div *ngIf="isLoggedIn$ | async">User is logged in!</div>
         <div>User Status </div>
     </div>
+        <xui-next-common-footer></xui-next-common-footer>
   `,
     styles: [
         `
@@ -54,6 +57,8 @@ import { FormsModule } from '@angular/forms';
         FormsModule,
         NgIf,
         AsyncPipe,
+        CommonHeaderComponent,
+        CommonFooterComponent,
     ],
 })
 export class LoginEntryComponent {

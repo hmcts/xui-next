@@ -10,6 +10,6 @@ export const authGuard: CanActivateFn = (route, state) => {
   if ( authService.isUserLoggedIn.value && authService.getToken().length > 0 ) {
     return true
   }else {
-    return router.parseUrl('/notAuthorized')
+    return router.parseUrl('/notAuthorised')
   }
 };

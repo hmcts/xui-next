@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@ui-hmcts-common": ["libs/ui-hmcts-common/src/index.ts"],
       "@xui-next/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@xui-next/hmcts-ui-common": ["libs/hmcts-ui-common/src/index.ts"],
       "@xui-next/shared-data-access-user": [

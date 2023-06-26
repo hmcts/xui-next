@@ -17,7 +17,12 @@
         "tsConfig": "apps/app-shell/tsconfig.app.json",
         "assets": [
           "apps/app-shell/src/favicon.ico",
-          "apps/app-shell/src/assets"
+          "apps/app-shell/src/assets",
+          {
+            "glob": "**/*",
+            "input": "../../libs/ui-hmcts-common/lib/assets",
+            "output": "assets"
+          }
         ],
         "styles": ["apps/app-shell/src/styles.scss"],
         "scripts": [],

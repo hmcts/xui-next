@@ -18,7 +18,13 @@ export class AuthService {
         return {
             defaultRoute: user.defaultRoute,
             permittedRoutes: JSON.stringify(user.routes),
-            access_token: await this.jwtService.signAsync(payload),
+            //access_token: await this.jwtService.signAsync(payload),
+            access_token: user.token,
+
         };
+    }
+
+    async validateSession(token) {
+        await this.usersService.findToken(token);
     }
 }

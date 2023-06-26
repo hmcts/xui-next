@@ -15,7 +15,12 @@
         "main": "apps/idam/src/main.ts",
         "polyfills": ["zone.js"],
         "tsConfig": "apps/idam/tsconfig.app.json",
-        "assets": ["apps/idam/src/favicon.ico", "apps/idam/src/assets"],
+        "assets": ["apps/idam/src/favicon.ico", "apps/idam/src/assets",
+          {
+            "glob": "**/*",
+            "input": "../../libs/ui-hmcts-common/lib/assets",
+            "output": "assets"
+          }],
         "styles": ["apps/idam/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {

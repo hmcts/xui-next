@@ -11,6 +11,7 @@ export class UsersService {
             userId: 1,
             username: 'Demo',
             password: 'demo',
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NzQzMjk0NywiZXhwIjoxNjg3NDMzMDA3fQ.-0tGeYqPocryOmWHTJUrjcvrU7hyo2rEtuxgj-tsHrs',
             Role:['Admin'],
             routes: `[{
                     path: 'login',
@@ -48,24 +49,30 @@ export class UsersService {
                     path: '',
                     loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.RemoteEntryModule),
                 }]`,
-            defaultRoute: 'manage-organisations'
+            defaultRoute: 'manage-cases'
         },
         {
             userId: 2,
             username: 'User',
             password: 'guess',
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiVXNlciIsImlhdCI6MTY4NzQzNDEwMSwiZXhwIjoxNjg3NDM0MTYxfQ.3nHir06eWa4S05yp4Wr60Yp-N_CYnY-ZTTcbXSA-LzE',
             defaultRoute: 'show-cases'
         },
         {
             userId: 2,
             username: 'Admin',
             password: 'guess',
-            defaultRoute: 'manage-cases'
+            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiQWRtaW4iLCJpYXQiOjE2ODc0MzU4NzYsImV4cCI6MTY4NzQzNTkzNn0.t7DvNHCrxX3Ab60e42i_RdCJY0lP5n3pj22oK244clM',
+            defaultRoute: 'manage-organisations'
         },
     ];
 
     async findOne(username: string): Promise<User | undefined> {
         return this.users.find(user => user.username === username);
+    }
+
+    async findToken(token: string): Promise<User | undefined> {
+        return this.users.find(user => user.token === token);
     }
 
 }

@@ -5,6 +5,10 @@ import {authGuard} from "@xui-next/shared-data-access-user";
 
 
 export const appRoutes: Route[] = [
+  // {
+  //   path: 'notAuthorised',
+  //   loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.NotAuthorisedComponent),
+  // },
   {
     path: 'login',
     loadChildren: () =>
@@ -28,10 +32,6 @@ export const appRoutes: Route[] = [
     canActivate:[authGuard],
     loadChildren: () =>
       loadRemoteModule('show-cases','./Module').then((m) => m.RemoteEntryModule),
-  },
-  {
-    path: 'notAuthorised',
-    loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.RemoteEntryModule),
   },
   {
     path: 'idam',

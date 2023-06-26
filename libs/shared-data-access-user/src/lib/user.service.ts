@@ -52,6 +52,7 @@ export class UserService {
   }, error => {
     console.log('got an error', error)
     this.logout()
+    this.router.parseUrl('/notAuthorised')
   })
   }
 
