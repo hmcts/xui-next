@@ -1,0 +1,14 @@
+@use "node_modules/govuk-frontend/govuk/all";
+.verticalLine {
+  border-right: thin solid #000000;
+}
+.login-form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 8px;
+}
+label {
+  display: block;
+}

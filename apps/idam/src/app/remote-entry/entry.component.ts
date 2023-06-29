@@ -9,27 +9,13 @@ import { Component } from '@angular/core';
 import {UserService} from "@xui-next/shared-data-access-user";
 import { NgIf, AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {CommonFooterComponent, CommonHeaderComponent} from "@ui-hmcts-common";
+import {CommonFooterComponent, CommonHeaderComponent, LoginContainerComponent} from "@ui-hmcts-common";
 
 @Component({
     selector: 'xui-next-idam',
     template: `
         <xui-next-common-header></xui-next-common-header>
-    <div class="login-app">
-      <form class="login-form" (ngSubmit)="login()">
-        <label>
-          Username:
-          <input type="text" name="username" [(ngModel)]="username" />
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" [(ngModel)]="password" />
-        </label>
-        <button type="submit">Login</button>
-      </form>
-      <div *ngIf="isLoggedIn$ | async">User is logged in!</div>
-        <div>User Status </div>
-    </div>
+            <xui-next-login-container></xui-next-login-container>
         <xui-next-common-footer></xui-next-common-footer>
   `,
     styles: [
@@ -59,6 +45,7 @@ import {CommonFooterComponent, CommonHeaderComponent} from "@ui-hmcts-common";
         AsyncPipe,
         CommonHeaderComponent,
         CommonFooterComponent,
+        LoginContainerComponent,
     ],
 })
 export class LoginEntryComponent {

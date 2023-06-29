@@ -9,7 +9,7 @@ export class UsersService {
     private readonly users = [
         {
             userId: 1,
-            username: 'Demo',
+            username: 'Demo@hmcts.com',
             password: 'demo',
             token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NzQzMjk0NywiZXhwIjoxNjg3NDMzMDA3fQ.-0tGeYqPocryOmWHTJUrjcvrU7hyo2rEtuxgj-tsHrs',
             Role:['Admin'],
@@ -53,14 +53,14 @@ export class UsersService {
         },
         {
             userId: 2,
-            username: 'User',
+            username: 'User@hmcts.com',
             password: 'guess',
             token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiVXNlciIsImlhdCI6MTY4NzQzNDEwMSwiZXhwIjoxNjg3NDM0MTYxfQ.3nHir06eWa4S05yp4Wr60Yp-N_CYnY-ZTTcbXSA-LzE',
             defaultRoute: 'show-cases'
         },
         {
             userId: 2,
-            username: 'Admin',
+            username: 'Admin@hmcts.com',
             password: 'guess',
             token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiQWRtaW4iLCJpYXQiOjE2ODc0MzU4NzYsImV4cCI6MTY4NzQzNTkzNn0.t7DvNHCrxX3Ab60e42i_RdCJY0lP5n3pj22oK244clM',
             defaultRoute: 'manage-organisations'

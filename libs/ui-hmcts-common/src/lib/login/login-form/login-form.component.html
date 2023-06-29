@@ -1,0 +1,23 @@
+
+<div class="form-group">
+    <form class="govuk-form-group login-form" #loginForm="ngForm" (ngSubmit)="login()">
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="username">
+                Email
+            </label>
+        </h1>
+            <input class="govuk-input" type="text" id="username" name="username" [(ngModel)]="username" />
+
+        <h1 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-label--l" for="password">
+                Password:
+            </label>
+        </h1>
+            <input type="password" id="password" name="password" [(ngModel)]="password" />
+    <div>
+        <button type="submit">Login</button>
+    </div>
+    </form>
+
+
+</div>
