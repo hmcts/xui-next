@@ -7,9 +7,10 @@
 // export class RemoteEntryComponent {}
 import { Component } from '@angular/core';
 import {UserService} from "@xui-next/shared-data-access-user";
-import { NgIf, AsyncPipe } from '@angular/common';
+import {NgIf, AsyncPipe, CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {CommonFooterComponent, CommonHeaderComponent, LoginContainerComponent} from "@ui-hmcts-common";
+
 
 @Component({
     selector: 'xui-next-idam',
@@ -40,12 +41,13 @@ import {CommonFooterComponent, CommonHeaderComponent, LoginContainerComponent} f
     ],
     standalone: true,
     imports: [
+        CommonModule,
         FormsModule,
         NgIf,
         AsyncPipe,
         CommonHeaderComponent,
         CommonFooterComponent,
-        LoginContainerComponent,
+        LoginContainerComponent
     ],
 })
 export class LoginEntryComponent {

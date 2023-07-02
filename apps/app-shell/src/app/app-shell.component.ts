@@ -4,7 +4,7 @@ import { Router, RouterOutlet } from "@angular/router";
 import {distinctUntilChanged} from "rxjs";
 
 import {UserService} from "@xui-next/shared-data-access-user";
-import {HttpClient} from "@angular/common/http";
+
 
 @Component({
     selector: 'xui-next-root',

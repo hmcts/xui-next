@@ -3,7 +3,7 @@ import {UserService} from "./user.service";
 import {inject} from "@angular/core";
 
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = () => {
   const authService = inject(UserService)
   const router: Router = inject(Router)
   console.log('In Auth guard',authService.isUserLoggedIn.value )
