@@ -1,0 +1,50 @@
+{
+  "name": "exui-next-common-lib",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/exui-next-common-lib/src",
+  "prefix": "xui-next",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/exui-next-common-lib/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/exui-next-common-lib/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/exui-next-common-lib/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/exui-next-common-lib/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/exui-next-common-lib/**/*.ts",
+          "libs/exui-next-common-lib/**/*.html"
+        ]
+      }
+    }
+  }
+}

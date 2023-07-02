@@ -1,0 +1,11 @@
+<div class="govuk-form-group" [attr.formGroupName]="group" [ngClass]="{'govuk-form-group--error': (error?.isInvalid)}">
+  <xui-next-lib-gov-uk-fieldset
+    [config]="{legend: config.legend, classes: 'govuk-label--m', id: config.key, hint: config.hint, isPageHeading: config.isPageHeading}"
+    [errorMessage]="error">
+
+    <xui-next-lib-gov-uk-error-message [config]="{id: group}" [errorMessage]="error"></xui-next-lib-gov-uk-error-message>
+
+    <ng-content></ng-content>
+
+  </xui-next-lib-gov-uk-fieldset>
+</div>
