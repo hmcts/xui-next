@@ -2,12 +2,21 @@
 .verticalLine {
   border-right: thin solid #000000;
 }
+.login--heading {
+  padding-left: 20px;
+}
+
 .login-form {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
   padding: 8px;
+}
+
+.cancel-link{
+  margin-left: 20px;
+  padding-top: 20px;
 }
 label {
   display: block;
