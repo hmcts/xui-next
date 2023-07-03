@@ -1,4 +1,7 @@
 @use "node_modules/govuk-frontend/govuk/all";
+.side-by-side{
+  width: 100%; height: 100%; justify-content: flex-start; align-items: flex-start; gap: 30px; display: inline-flex;
+}
 .verticalLine {
   border-right: thin solid #000000;
 }
