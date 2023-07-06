@@ -9,6 +9,7 @@ import {LoginEntryComponent} from "./entry.component";
 import {NotAuthorisedComponent} from "../notAuthorised/not-authorised.component";
 
 
+
 @NgModule({
     imports: [ CommonModule, FormsModule, RouterModule.forChild(remoteRoutes), LoginEntryComponent, NotAuthorisedComponent, IdamContainerComponent],
     providers: [],

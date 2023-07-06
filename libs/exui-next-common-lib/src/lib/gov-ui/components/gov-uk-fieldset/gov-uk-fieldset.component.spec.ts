@@ -1,0 +1,50 @@
+import {  NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder } from '@angular/forms';
+import { By } from '@angular/platform-browser';
+import { GovUkFieldsetComponent } from './gov-uk-fieldset.component';
+
+describe('GovUkFieldsetComponent', () => {
+  let component: GovUkFieldsetComponent;
+  let fixture: ComponentFixture<GovUkFieldsetComponent>;
+  const formBuilder: UntypedFormBuilder = new UntypedFormBuilder();
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+    imports: [FormsModule, ReactiveFormsModule, GovUkFieldsetComponent],
+    schemas: [NO_ERRORS_SCHEMA],
+    providers: [
+        { provide: UntypedFormBuilder, useValue: formBuilder }
+    ]
+})
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(GovUkFieldsetComponent);
+    component = fixture.componentInstance;
+    component.config = {legend: 'legend', classes: '', id: 'id', hint: 'hint', key: 'key', isPageHeading: true};
+    // component.isPageHeading = true;
+    component.errorMessage = { isInvalid: false, messages: ['Error1', 'Error2']};
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should have h1 component when its a page heading', () => {
+    component.config.isPageHeading = true;
+    fixture.detectChanges();
+    const header = fixture.debugElement.query(By.css('h1'));
+    expect(header).toBeTruthy();
+  });
+
+  it('should have no h1 component when its a page heading is false', () => {
+    component.config.isPageHeading = false;
+    fixture.detectChanges();
+    const header = fixture.debugElement.query(By.css('h1'));
+    expect(header).toBeFalsy();
+  });
+
+});

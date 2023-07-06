@@ -1,0 +1,21 @@
+<div class="govuk-form-group gov-uk-input" [formGroup]="group"
+[ngClass]="{'govuk-form-group--error': errorMessage?.isInvalid}">
+
+  <xui-next-lib-gov-label [config]="config"></xui-next-lib-gov-label>
+
+<span *ngIf="config.hint" [id]="config.id +'-hint'" class="govuk-hint">
+  {{config.hint}}
+</span>
+
+<xui-next-lib-gov-uk-error-message [config]="config" [errorMessage]="errorMessage"></xui-next-lib-gov-uk-error-message>
+
+<input class="govuk-input"
+       [class.govuk-!-width-full]="config.fullWidth"
+       [ngClass]="{'govuk-input--error': errorMessage?.isInvalid}"
+       [id]="config.id"
+       [name]="config.name"
+       [type]="config.type"
+       [attr.aria-invalid]="errorMessage?.isInvalid"
+       [formControlName]="config.name"
+       [attr.aria-describedby]='setDescribedBy()'>
+</div>
