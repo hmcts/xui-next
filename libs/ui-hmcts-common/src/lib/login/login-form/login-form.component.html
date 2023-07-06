@@ -1,23 +1,27 @@
-
+<div class="form-container">
+<h1 class="govuk-fieldset__heading govuk-label--m">Sign in</h1>
 <div class="form-group">
     <form class="govuk-form-group login-form" #loginForm="ngForm" (ngSubmit)="login()">
-        <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="username">
+        <h2 class="govuk-label-wrapper">
+            <label class="govuk-label  govuk-fieldset__heading" for="username">
                 Email
             </label>
-        </h1>
+        </h2>
             <input class="govuk-input" type="text" id="username" name="username" [(ngModel)]="username" />
 
-        <h1 class="govuk-label-wrapper">
-            <label class="govuk-label govuk-label--l" for="password">
+        <h2 class="govuk-label-wrapper">
+            <label class="govuk-label govuk-fieldset__heading" for="password">
                 Password:
             </label>
-        </h1>
-            <input type="password" id="password" name="password" [(ngModel)]="password" />
-    <div>
-        <button type="submit">Login</button>
+        </h2>
+            <input class="govuk-input"  type="password" id="password" name="password" [(ngModel)]="password" />
+        <a href="#" class="govuk-link govuk-link--no-visited-state">Forgotten Password</a>
+    <div class="button-group">
+        <button class="govuk-button" type="submit">Sign in </button>
+        <div class="cancel-link"><a href="#" class="govuk-link  govuk-link--no-visited-state ">Cancel</a></div>
+
     </div>
     </form>
 
-
+</div>
 </div>

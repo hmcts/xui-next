@@ -1,9 +1,10 @@
 import {Role} from "../auth/enums/role.enum";
 
-class User {
+export class User {
     userId: number;
     username: string;
     password: string;
+    token: string;
     roles: Role[];
     routes:string;
     defaultRoute: string;

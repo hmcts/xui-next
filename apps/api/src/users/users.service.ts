@@ -1,18 +1,21 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
+import {User} from "./User";
+import {Role} from "../auth/enums/role.enum";
+
 
 // This should be a real class/interface representing a user entity
-export type User = any;
+
 
 //TODO Replace with database if needed
 @Injectable()
 export class UsersService {
-    private readonly users = [
+    private readonly users :User[] = [
         {
             userId: 1,
             username: 'Demo@hmcts.com',
             password: 'demo',
             token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXJuYW1lIjoiRGVtbyIsImlhdCI6MTY4NzQzMjk0NywiZXhwIjoxNjg3NDMzMDA3fQ.-0tGeYqPocryOmWHTJUrjcvrU7hyo2rEtuxgj-tsHrs',
-            Role:['Admin'],
+            roles:[Role.JudiicalUser],
             routes: `[{
                     path: 'login',
                     loadChildren: () =>
@@ -56,6 +59,8 @@ export class UsersService {
             username: 'User@hmcts.com',
             password: 'guess',
             token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiVXNlciIsImlhdCI6MTY4NzQzNDEwMSwiZXhwIjoxNjg3NDM0MTYxfQ.3nHir06eWa4S05yp4Wr60Yp-N_CYnY-ZTTcbXSA-LzE',
+            routes:'',
+            roles:[Role.User],
             defaultRoute: 'show-cases'
         },
         {
@@ -63,6 +68,8 @@ export class UsersService {
             username: 'Admin@hmcts.com',
             password: 'guess',
             token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXJuYW1lIjoiQWRtaW4iLCJpYXQiOjE2ODc0MzU4NzYsImV4cCI6MTY4NzQzNTkzNn0.t7DvNHCrxX3Ab60e42i_RdCJY0lP5n3pj22oK244clM',
+            routes:'',
+            roles:[Role.Admin],
             defaultRoute: 'manage-organisations'
         },
     ];
