@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from "@ngrx/store";
 import { userFeature } from "@xui-next/shared-data-access-user";
 import { HttpClient } from "@angular/common/http";
+import { CommonModule } from "@angular/common";
 export let AppModule = class AppModule {
 };
 AppModule = __decorate([
@@ -13,6 +14,7 @@ AppModule = __decorate([
         declarations: [AppComponent],
         imports: [
             BrowserModule,
+            CommonModule,
             RouterModule.forRoot([
                 {
                     path: '',
@@ -21,6 +23,7 @@ AppModule = __decorate([
             ], { initialNavigation: 'enabledBlocking' }),
             StoreModule.forFeature(userFeature)
         ],
+        exports: [CommonModule, BrowserModule],
         providers: [HttpClient],
         bootstrap: [AppComponent],
     })

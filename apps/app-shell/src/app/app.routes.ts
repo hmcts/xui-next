@@ -3,7 +3,7 @@ import {loadRemoteModule} from "@nx/angular/mf";
 import {authGuard} from "@xui-next/shared-data-access-user";
 
 
-
+//TODO  Can this be loaded via service at runtime to create truly dynamic routes?
 export const appRoutes: Route[] = [
   // {
   //   path: 'notAuthorised',

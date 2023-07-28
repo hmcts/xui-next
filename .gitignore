@@ -117,3 +117,5 @@ dist
 /.idea/sonarlint/issuestore/e/0/e04af50981a1e8ec743626d2e0d5586e0b44c7d4
 /.idea/
 
+/.app/**/*.js
+/.app/**/*.map

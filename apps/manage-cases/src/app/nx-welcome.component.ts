@@ -419,8 +419,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <!--  WELCOME  -->
         <div id="welcome">
           <h1>
-            <span>Feature site 2 located at localhost:4202 , </span>
-            Placeholder for  show-cases 👋
+            <span> Feature Site 1 located at localhost:4201, </span>
+            Placeholder for Manage Cases Component 👋
           </h1>
         </div>
         <!--  HERO  -->

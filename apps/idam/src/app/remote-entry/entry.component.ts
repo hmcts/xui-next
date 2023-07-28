@@ -9,19 +9,23 @@ import { Component } from '@angular/core';
 import {UserService} from "@xui-next/shared-data-access-user";
 import {NgIf, AsyncPipe, CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import {CommonFooterComponent, CommonHeaderComponent, LoginContainerComponent} from "@ui-hmcts-common";
+import {
+  CommonFooterComponent,
+  CommonHeaderComponent,
+  LoginContainerComponent,
+  PhaseBannerComponent
+} from "@ui-hmcts-common";
 
 
 @Component({
     selector: 'xui-next-idam',
     template: `
         <xui-next-common-header></xui-next-common-header>
+        <xui-next-phase-banner class="center govuk-width-container" type="Beta"></xui-next-phase-banner>
             <xui-next-login-container></xui-next-login-container>
         <xui-next-common-footer></xui-next-common-footer>
   `,
-    styles: [
-        `
-      .login-app {
+    styles: [`.login-app {
         width: 30vw;
         border: 2px dashed black;
         padding: 8px;
@@ -40,15 +44,16 @@ import {CommonFooterComponent, CommonHeaderComponent, LoginContainerComponent} f
     `,
     ],
     standalone: true,
-    imports: [
-        CommonModule,
-        FormsModule,
-        NgIf,
-        AsyncPipe,
-        CommonHeaderComponent,
-        CommonFooterComponent,
-        LoginContainerComponent
-    ],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgIf,
+    AsyncPipe,
+    CommonHeaderComponent,
+    CommonFooterComponent,
+    LoginContainerComponent,
+    PhaseBannerComponent
+  ]
 })
 export class LoginEntryComponent {
   username = '';
