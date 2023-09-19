@@ -21,7 +21,7 @@ import {
     selector: 'xui-next-idam',
     template: `
         <xui-next-common-header></xui-next-common-header>
-        <xui-next-phase-banner class="center govuk-width-container" type="Beta"></xui-next-phase-banner>
+        <xui-next-phase-banner  type="Beta"></xui-next-phase-banner>
             <xui-next-login-container></xui-next-login-container>
         <xui-next-common-footer></xui-next-common-footer>
   `,

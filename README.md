@@ -19,3 +19,12 @@ nx serve api
 nx serve app-shell 
 # Development of prototype
 nx serve app-shell --open  --devRemotes="manage-cases,show-cases,manage-organisations"
+
+
+# Users 
+Each of the user should automatically navigate to the base feature area of the site  
+Demo@hmcts.com should navigate to localhost microsite manage-cases  
+User@hmcts.com should navigate to localhost microsite show-cases  
+Admin@hmcts.com should navigate to localhost microsite manage-organisation  
+
+Password is guess no attempt has been made to make this secure since thsi will never be production code and we are simply testing if module federation works in practise

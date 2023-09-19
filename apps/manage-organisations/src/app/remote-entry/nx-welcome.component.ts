@@ -419,7 +419,7 @@ import { Component, ViewEncapsulation } from '@angular/core';
         <!--  WELCOME  -->
         <div id="welcome">
           <h1>
-            <span> Feature site 3 loacated at localhost: 4203  , </span>
+            <span> Feature site 3 located at localhost: 4203  , </span>
             Placeholder for  manage-organisations 👋
           </h1>
         </div>
