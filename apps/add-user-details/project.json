@@ -1,33 +1,28 @@
 {
-  "name": "idam",
+  "name": "add-user-details",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "prefix": "xui-next",
-  "sourceRoot": "apps/idam/src",
+  "sourceRoot": "apps/add-user-details/src",
   "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:webpack-browser",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/apps/idam",
-        "index": "apps/idam/src/index.html",
-        "main": "apps/idam/src/main.ts",
+        "outputPath": "dist/apps/add-user-details",
+        "index": "apps/add-user-details/src/index.html",
+        "main": "apps/add-user-details/src/main.ts",
         "polyfills": ["zone.js"],
-        "tsConfig": "apps/idam/tsconfig.app.json",
+        "tsConfig": "apps/add-user-details/tsconfig.app.json",
         "assets": [
-          "apps/idam/src/favicon.ico",
-          "apps/idam/src/assets",
-          {
-            "glob": "**/*",
-            "input": "../../libs/ui-hmcts-common/lib/assets",
-            "output": "assets"
-          }
+          "apps/add-user-details/src/favicon.ico",
+          "apps/add-user-details/src/assets"
         ],
-        "styles": ["apps/idam/src/styles.scss"],
+        "styles": ["apps/add-user-details/src/styles.scss"],
         "scripts": [],
         "customWebpackConfig": {
-          "path": "apps/idam/webpack.config.js"
+          "path": "apps/add-user-details/webpack.config.js"
         }
       },
       "configurations": {
@@ -41,12 +36,12 @@
             {
               "type": "anyComponentStyle",
               "maximumWarning": "2kb",
-              "maximumError": "120kb"
+              "maximumError": "4kb"
             }
           ],
           "outputHashing": "all",
           "customWebpackConfig": {
-            "path": "apps/idam/webpack.prod.config.js"
+            "path": "apps/add-user-details/webpack.prod.config.js"
           }
         },
         "development": {
@@ -63,15 +58,15 @@
     "serve": {
       "executor": "@nx/angular:webpack-dev-server",
       "options": {
-        "port": 4201,
-        "publicHost": "http://localhost:4201"
+        "port": 4205,
+        "publicHost": "http://localhost:4205"
       },
       "configurations": {
         "production": {
-          "browserTarget": "idam:build:production"
+          "browserTarget": "add-user-details:build:production"
         },
         "development": {
-          "browserTarget": "idam:build:development"
+          "browserTarget": "add-user-details:build:development"
         }
       },
       "defaultConfiguration": "development"
@@ -79,21 +74,24 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "idam:build"
+        "browserTarget": "add-user-details:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/idam/**/*.ts", "apps/idam/**/*.html"]
+        "lintFilePatterns": [
+          "apps/add-user-details/**/*.ts",
+          "apps/add-user-details/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "apps/idam/jest.config.ts",
+        "jestConfig": "apps/add-user-details/jest.config.ts",
         "passWithNoTests": true
       },
       "configurations": {
@@ -107,16 +105,16 @@
       "executor": "@nx/web:file-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "idam:build",
-        "port": 4201,
+        "buildTarget": "add-user-details:build",
+        "port": 4205,
         "watch": false
       },
       "configurations": {
         "development": {
-          "buildTarget": "idam:build:development"
+          "buildTarget": "add-user-details:build:development"
         },
         "production": {
-          "buildTarget": "idam:build:production"
+          "buildTarget": "add-user-details:build:production"
         }
       }
     }

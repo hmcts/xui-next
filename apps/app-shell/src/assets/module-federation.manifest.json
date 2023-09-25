@@ -2,5 +2,6 @@
   "idam": "http://localhost:4201",
   "show-cases": "http://localhost:4202",
   "manage-cases": "http://localhost:4203",
-  "manage-organisations": "http://localhost:4204"
+  "manage-organisations": "http://localhost:4204",
+  "add-user-details": "http://localhost:4205"
 }
