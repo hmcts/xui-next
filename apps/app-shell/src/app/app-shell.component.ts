@@ -1,10 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import { Router, RouterOutlet } from "@angular/router";
+import { Route, Router, RouterOutlet, Routes } from "@angular/router";
 
 import {distinctUntilChanged} from "rxjs";
 
 import {UserService} from "@xui-next/shared-data-access-user";
-
 
 @Component({
     selector: 'xui-next-root',
@@ -14,6 +13,7 @@ import {UserService} from "@xui-next/shared-data-access-user";
     imports: [RouterOutlet],
 })
 export class AppShellComponent implements OnInit {
+  private routes: Routes = [];
   title = 'app-shell';
   isLoggedIn$ = this.userService.isUserLoggedIn$;
   constructor(private userService: UserService, private router: Router) {}

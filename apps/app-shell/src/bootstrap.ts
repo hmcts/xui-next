@@ -1,21 +1,22 @@
 
 
 import { AppShellComponent } from './app/app-shell.component';
-import { isDevMode} from '@angular/core';
+import { APP_INITIALIZER, isDevMode } from "@angular/core";
 import {provideStoreDevtools} from '@ngrx/store-devtools';
 import {routerReducer} from '@ngrx/router-store';
 
 import {provideState, provideStore} from '@ngrx/store';
-import { appRoutes } from './app/app.routes';
-import { withEnabledBlockingInitialNavigation, provideRouter, withDebugTracing } from "@angular/router";
+import { withEnabledBlockingInitialNavigation, provideRouter, withDebugTracing, Router } from "@angular/router";
 import { bootstrapApplication } from '@angular/platform-browser';
 import {userFeature, UserService} from "@xui-next/shared-data-access-user";
 import {provideHttpClient} from "@angular/common/http";
+import { DynamicRouteService } from "@ui-hmcts-common";
 
 bootstrapApplication(AppShellComponent, {
     providers: [
         provideHttpClient(),
-        UserService,
+        UserService,DynamicRouteService,
+
         // importProvidersFrom(BrowserModule, StoreModule.forRoot({}, {
         //     metaReducers: [],
         //     runtimeChecks: {
@@ -32,7 +33,13 @@ bootstrapApplication(AppShellComponent, {
         provideStore({
             router: routerReducer
         }),
-        provideRouter(appRoutes, withEnabledBlockingInitialNavigation(), withDebugTracing()),
+        provideRouter([], withEnabledBlockingInitialNavigation(), withDebugTracing()),
+      {
+        provide: APP_INITIALIZER,
+        multi:true,
+        useFactory: initializeAppRoutes,
+        deps:[Router, DynamicRouteService]
+      },
         provideStoreDevtools({
             maxAge: 25,
             logOnly: !isDevMode(),
@@ -44,3 +51,24 @@ bootstrapApplication(AppShellComponent, {
     ]
 })
   .catch((err) => console.error(err));
+
+export function initializeAppRoutes(router: Router, routeService: DynamicRouteService): () => Promise<void> {
+
+
+    return () =>
+      new Promise((resolve) => {
+          console.log('***process custom logic, Angular init***');
+          console.log('***process custom logic, Angular init***', routeService.getTopLevelRoutes());
+
+          router.resetConfig(
+              routeService.getTopLevelRoutes()
+          );
+
+          setTimeout(() => {
+              console.log(
+                '***3 seconds latter, custom logic finished, Angular init***'
+              );
+              resolve();
+          }, 3000);
+      });
+}
