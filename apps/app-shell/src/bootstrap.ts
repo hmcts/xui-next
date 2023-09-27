@@ -7,7 +7,7 @@ import {routerReducer} from '@ngrx/router-store';
 
 import {provideState, provideStore} from '@ngrx/store';
 import { appRoutes } from './app/app.routes';
-import { withEnabledBlockingInitialNavigation, provideRouter } from '@angular/router';
+import { withEnabledBlockingInitialNavigation, provideRouter, withDebugTracing } from "@angular/router";
 import { bootstrapApplication } from '@angular/platform-browser';
 import {userFeature, UserService} from "@xui-next/shared-data-access-user";
 import {provideHttpClient} from "@angular/common/http";
@@ -32,7 +32,7 @@ bootstrapApplication(AppShellComponent, {
         provideStore({
             router: routerReducer
         }),
-        provideRouter(appRoutes, withEnabledBlockingInitialNavigation()),
+        provideRouter(appRoutes, withEnabledBlockingInitialNavigation(), withDebugTracing()),
         provideStoreDevtools({
             maxAge: 25,
             logOnly: !isDevMode(),

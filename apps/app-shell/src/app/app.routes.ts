@@ -4,13 +4,7 @@ import { authGuard } from '@xui-next/shared-data-access-user';
 
 //TODO  Can this be loaded via service at runtime to create truly dynamic routes?
 export const appRoutes: Route[] = [
-  {
-    path: 'add-user-details',
-    loadChildren: () =>
-      loadRemoteModule('add-user-details', './Module').then(
-        (m) => m.RemoteEntryModule
-      ),
-  },
+
   // {
   //   path: 'notAuthorised',
   //   loadChildren: () => loadRemoteModule('idam','./Module').then((m) => m.NotAuthorisedComponent),
@@ -53,5 +47,12 @@ export const appRoutes: Route[] = [
     path: '',
     loadChildren: () =>
       loadRemoteModule('idam', './Module').then((m) => m.RemoteEntryModule),
+  },
+  {
+    path: 'add-user-details',
+    loadChildren: () =>
+      loadRemoteModule('add-user-details', './Module').then(
+        (m) => m.RemoteEntryModule
+      ),
   },
 ];

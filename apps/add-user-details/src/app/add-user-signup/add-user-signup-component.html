@@ -1,0 +1,24 @@
+<div class="govuk-width-container">
+<div class="govuk-form-group">
+  <label class="govuk-label" for="full-name">
+    Full name
+  </label>
+  <input class="govuk-input" id="full-name" name="fullName" type="text" spellcheck="false" autocomplete="name">
+  <label class="govuk-label" for="email">
+    Email address
+  </label>
+  <div id="email-hint" class="govuk-hint">
+    We’ll only use this to send you a receipt
+  </div>
+  <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+
+  <label class="govuk-label" for="password">
+    Choose a password
+  </label>
+  <input class="govuk-input" id="password" name="password" type="password" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+</div>
+  <button class="govuk-button" data-module="govuk-button" (click)="submitNext()" >
+    Save and continue
+  </button>
+</div>
+
