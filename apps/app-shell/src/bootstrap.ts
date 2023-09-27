@@ -57,7 +57,6 @@ export function initializeAppRoutes(router: Router, routeService: DynamicRouteSe
 
     return () =>
       new Promise((resolve) => {
-          console.log('***process custom logic, Angular init***');
           console.log('***process custom logic, Angular init***', routeService.getTopLevelRoutes());
 
           router.resetConfig(
@@ -66,9 +65,9 @@ export function initializeAppRoutes(router: Router, routeService: DynamicRouteSe
 
           setTimeout(() => {
               console.log(
-                '***3 seconds latter, custom logic finished, Angular init***'
+                '*** next frame, custom logic finished, Angular init***'
               );
               resolve();
-          }, 3000);
+          }, 0);
       });
 }
