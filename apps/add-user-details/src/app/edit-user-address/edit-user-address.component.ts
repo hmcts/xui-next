@@ -26,7 +26,8 @@ export class EditUserAddressComponent {
     this.router.navigate(['bank-details'],{relativeTo: this.route.parent});
   }
 
-  resetForm() {
+  onUpdateAddress(evt:Address) {
+    console.log(evt);
 
   }
 }

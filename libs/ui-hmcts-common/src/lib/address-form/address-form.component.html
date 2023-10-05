@@ -4,7 +4,6 @@
     What is your address?
   </h1>
 </legend>
-  <p>Angular Form</p>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <div class="govuk-form-group">
     <label class="govuk-label" for="address-line-1">
@@ -63,3 +62,13 @@
 </form>
 
 </fieldset>
+<div class="govuk-button-group">
+<button class="govuk-button" data-module="govuk-button"
+        data-prevent-double-click="true"
+        [disabled]="form.invalid"
+        (click)="onSubmit()" >
+  Save and continue
+</button>
+<button class="govuk-button govuk-button--secondary" data-module="govuk-button" (click)="resetForm()" >Reset Form
+</button>
+</div>

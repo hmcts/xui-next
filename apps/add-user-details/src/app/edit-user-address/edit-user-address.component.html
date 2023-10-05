@@ -1,9 +1,6 @@
 <div class="govuk-width-container">
   <xui-next-address-form
-  [editAddress]="editData"></xui-next-address-form>
-  <button class="govuk-button" data-module="govuk-button" (click)="submitNext()" >
-    Save and continue
-  </button>
-  <button class="govuk-button" data-module="govuk-button" (click)="resetForm()" >Reset Form
-  </button>
+  [editAddress]="editData"
+  (emitAddress)="onUpdateAddress($event)"></xui-next-address-form>
+
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
 import { Address } from "../models";
@@ -14,6 +14,7 @@ import { Address } from "../models";
 })
 export class AddressFormComponent implements OnInit{
   constructor( private fb: FormBuilder) {
+    this.emitAddress = new EventEmitter<Address>()
   }
   // @Input() editAddress:Address = {
   //   addressLine1:'',
@@ -23,6 +24,7 @@ export class AddressFormComponent implements OnInit{
   //   addressPostcode:''
   // }
 @Input() editAddress: Address | undefined
+  @Output() emitAddress : EventEmitter<Address>
 
   form = this.fb.group({
 
@@ -35,10 +37,15 @@ export class AddressFormComponent implements OnInit{
   
 
   ngOnInit(): void {
-    this.resetAddress();
+    this.resetFields();
   }
 
-  private resetAddress() {
+  resetForm(){
+    this.form.reset();
+    this.resetFields();
+  }
+
+  private resetFields() {
     this.form.patchValue({ addressLine1: this.editAddress?.addressLine1 });
     this.form.patchValue({ addressLine2: this.editAddress?.addressLine2 });
     this.form.patchValue({ addressCounty: this.editAddress?.addressCounty });
@@ -47,7 +54,9 @@ export class AddressFormComponent implements OnInit{
   }
 
   onSubmit() {
-
+    if( this.form.valid) {
+      this.emitAddress.emit(this.form.value as Address)
+    }
   }
 
 
