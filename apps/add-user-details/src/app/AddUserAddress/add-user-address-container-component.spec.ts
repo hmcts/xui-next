@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { AddUserAddressComponent } from './add-user-address-component';
+import { AddUserAddressContainerComponent } from './add-user-address-container-component';
 
 describe('AddUserAddressComponentComponent', () => {
-  let component: AddUserAddressComponent;
-  let fixture: ComponentFixture<AddUserAddressComponent>;
+  let component: AddUserAddressContainerComponent;
+  let fixture: ComponentFixture<AddUserAddressContainerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AddUserAddressComponent],
+      imports: [AddUserAddressContainerComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AddUserAddressComponent);
+    fixture = TestBed.createComponent(AddUserAddressContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

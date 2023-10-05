@@ -13,3 +13,4 @@ export * from './tcDocument.model';
 export * from './timeout-notification.model';
 export * from './user-details.model';
 export * from './user.model';
+export * from './address-model'

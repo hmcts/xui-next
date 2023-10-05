@@ -17,6 +17,7 @@
     "paths": {
       "@hmcts-exui-next": ["libs/exui-next-common-lib/src/index.ts"],
       "@ui-hmcts-common": ["libs/ui-hmcts-common/src/index.ts"],
+      "@ui-hmcts-common-models": ["libs/ui-hmcts-common/src/models/index.ts"],
       "@xui-next/api-interfaces": ["libs/api-interfaces/src/index.ts"],
       "@xui-next/shared-data-access-user": [
         "libs/shared-data-access-user/src/index.ts"

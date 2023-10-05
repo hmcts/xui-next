@@ -14,6 +14,17 @@ export class DynamicRouteService {
     return this.appRoutes
   }
 
+  // getModuleRoutes(moduleId: string):Route[] {
+  //   console.log('The Module id is ', moduleId)
+  //   return  [
+  //     { path: '', component: AddUserComponent, children:[
+  //         { path: '', component: AddUserSignupComponent },
+  //         { path: 'addAddress', component: AddUserAddressContainerComponent },
+  //         { path: 'bank-details', component: AddUserBankDetailsComponent }
+  //       ]} ,
+  //   ];
+  // }
+
 private appRoutes: Route[] = [
 
     // {

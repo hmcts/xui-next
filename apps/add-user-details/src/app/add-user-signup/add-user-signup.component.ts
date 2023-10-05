@@ -13,6 +13,7 @@ export class AddUserSignupComponent {
   constructor(private router: Router, private route: ActivatedRoute) {
   }
   submitNext() {
-    this.router.navigate(['addAddress'],{relativeTo: this.route});
+    // this.router.navigate(['addAddress'],{relativeTo: this.route});
+    this.router.navigate(['editAddress'],{relativeTo: this.route});
   }
 }

@@ -7,4 +7,5 @@ export * from './lib/login/login-container/login-container.component'
 export * from './lib/login/login-form/login-form.component'
 export * from './lib/login/login-signup/login-signup.component'
 export * from './lib/services/dynamic-route/dynamic-route.service'
-
+export * from './lib/address-form/address-form.component'
+export * from './lib/models'

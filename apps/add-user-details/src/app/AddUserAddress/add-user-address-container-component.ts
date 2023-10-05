@@ -1,15 +1,16 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from "@angular/router";
+import { AddressFormComponent } from "@ui-hmcts-common";
 
 @Component({
   selector: 'xui-next-add-user-address-component',
   standalone: true,
-  imports: [CommonModule],
-  templateUrl: './add-user-address-component.html',
-  styleUrls: ['./add-user-address-component.scss'],
+  imports: [CommonModule, AddressFormComponent],
+  templateUrl: './add-user-address-container-component.html',
+  styleUrls: ['./add-user-address-container-component.scss'],
 })
-export class AddUserAddressComponent {
+export class AddUserAddressContainerComponent {
   constructor(private router: Router, private route: ActivatedRoute) {
   }
   submitNext() {
