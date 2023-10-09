@@ -33,9 +33,9 @@ export class AddressFormComponent implements OnInit{
       addressLine2:[''],
       addressCounty:[''],
       addressTown:['', Validators.required],
-      addressPostcode:['',[Validators.required,CoreValidators.postcodeValidator]]
+      addressPostcode:['',[CoreValidators.postcodeValidator]]
       })
-
+//TODO -- There is a bug here postcode validator appears not to be working
 
   ngOnInit(): void {
     this.resetFields();
