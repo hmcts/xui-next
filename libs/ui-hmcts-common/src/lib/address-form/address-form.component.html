@@ -5,16 +5,22 @@
   </h1>
 </legend>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-  <div class="govuk-form-group">
+  <div class="govuk-form-group" [ngClass]="{'govuk-form-group--error': form.get('addressLine1')?.touched && form.get('addressLine1')?.errors?.['required']}">
     <label class="govuk-label" for="address-line-1">
       Address line 1
     </label>
+    <div *ngIf="form.get('addressLine1')?.touched && form.get('addressLine1')?.errors?.['required']">
+      <p id="address-line-1-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Enter address line 1
+      </p>
+    </div>
     <input class="govuk-input"
            id="address-line-1"
            name="addressLine1"
            type="text"
             formControlName="addressLine1"
     >
+
   </div>
   <div class="govuk-form-group">
     <label class="govuk-label" for="address-line-2">
@@ -27,10 +33,16 @@
            formControlName="addressLine2"
     >
   </div>
-  <div class="govuk-form-group">
+  <div class="govuk-form-group" [ngClass]="{'govuk-form-group--error': form.get('addressTown')?.touched && form.get('addressTown')?.errors?.['required']}">
+
     <label class="govuk-label" for="address-town">
       Town or city
     </label>
+    <div *ngIf="form.get('addressTown')?.touched && form.get('addressTown')?.errors?.['required']">
+      <p id="address-town-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Enter Postal Town
+      </p>
+    </div>
     <input class="govuk-input govuk-!-width-two-thirds"
            id="address-town"
            name="addressTown"
@@ -47,10 +59,22 @@
            formControlName="addressCounty"
            type="text">
   </div>
-  <div class="govuk-form-group">
-    <label class="govuk-label" for="address-postcode">
+  <div class="govuk-form-group" [ngClass]="{'govuk-form-group--error': form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['required']}">
+
+  <label class="govuk-label" for="address-postcode">
       Postcode
     </label>
+<!--    <div *ngIf="form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['required']">-->
+<!--      <p id="addressPostcode-error" class="govuk-error-message">-->
+<!--        <span class="govuk-visually-hidden">Error:</span> Enter Postcode-->
+<!--      </p>-->
+<!--    </div> -->
+
+    <div *ngIf="form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['postcode']">
+      <p id="addressPostcode-error2" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Postcode Invalid
+      </p>
+    </div>
     <input class="govuk-input govuk-input--width-10"
            id="address-postcode"
            name="addressPostcode"

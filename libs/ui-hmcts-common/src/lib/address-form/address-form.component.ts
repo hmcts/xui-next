@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Address } from "../models";
+import { CoreValidators } from "../validators/core-validators";
 
 
 
@@ -28,13 +29,13 @@ export class AddressFormComponent implements OnInit{
 
   form = this.fb.group({
 
-      addressLine1:[''],
+      addressLine1:['',Validators.required],
       addressLine2:[''],
       addressCounty:[''],
-      addressTown:[''],
-      addressPostcode:['']
+      addressTown:['', Validators.required],
+      addressPostcode:['',[Validators.required,CoreValidators.postcodeValidator]]
       })
-  
+
 
   ngOnInit(): void {
     this.resetFields();
