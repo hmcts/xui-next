@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Address } from "../models";
-import { CoreValidators } from "../validators/core-validators";
 
 
 
@@ -33,9 +32,12 @@ export class AddressFormComponent implements OnInit{
       addressLine2:[''],
       addressCounty:[''],
       addressTown:['', Validators.required],
-      addressPostcode:['',[CoreValidators.postcodeValidator]]
-      })
-//TODO -- There is a bug here postcode validator appears not to be working
+      addressPostcode:['',[Validators.required,Validators.pattern(/^(([A-Za-z]{1,2}[0-9][A-Za-z0-9]?|ASCN|STHL|TDCU|BBND|[BFS]IQQ|PCRN|TKCA) ?[0-9][A-Za-z]{2}|BFPO ?[0-9]{1,4}|(KY[0-9]|MSR|VG|AI)[ -]?[0-9]{4}|[A-Za-z]{2} ?[0-9]{2}|GE ?CX|GIR ?0A{2}|SAN ?TA1)$/)]
+]      })
+
+  // The use of a pattern validator here is intended to show a stand alone method for
+  // validating any regex you would care to use.
+  // Of course it might be more appropriate to write a custom validator function
 
   ngOnInit(): void {
     this.resetFields();

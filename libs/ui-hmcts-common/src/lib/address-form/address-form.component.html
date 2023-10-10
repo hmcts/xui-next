@@ -64,13 +64,13 @@
   <label class="govuk-label" for="address-postcode">
       Postcode
     </label>
-<!--    <div *ngIf="form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['required']">-->
-<!--      <p id="addressPostcode-error" class="govuk-error-message">-->
-<!--        <span class="govuk-visually-hidden">Error:</span> Enter Postcode-->
-<!--      </p>-->
-<!--    </div> -->
+    <div *ngIf="form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['required']">
+      <p id="addressPostcode-error" class="govuk-error-message">
+        <span class="govuk-visually-hidden">Error:</span> Enter Postcode
+      </p>
+    </div>
 
-    <div *ngIf="form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['postcode']">
+    <div *ngIf="form.get('addressPostcode')?.touched && form.get('addressPostcode')?.errors?.['pattern']">
       <p id="addressPostcode-error2" class="govuk-error-message">
         <span class="govuk-visually-hidden">Error:</span> Postcode Invalid
       </p>
@@ -82,8 +82,9 @@
            type="text"
     >
   </div>
-  <pre> {{form.value | json}}</pre>
-  <pre> {{form.get('addressPostcode')?.errors | json}}</pre>
+  <!-- These are here for debug -->
+<!--  <pre> {{form.value | json}}</pre>-->
+<!--  <pre> {{form.get('addressPostcode')?.errors | json}}</pre>-->
 </form>
 
 </fieldset>
